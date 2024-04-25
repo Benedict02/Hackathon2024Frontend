@@ -14,15 +14,34 @@ const colorPalette = {
 const Landing = () => {
   return (
     <>
-      <Container maxWidth="sm">
-        <Box sx={{ position: "absolute", top: "35%" }}>
-          <HowToVoteIcon />
-          <Typography variant="subtitle1">Selamat Datang di:</Typography>
-          <h2></h2>
-          <h1>MYVOTE</h1>
-          <Typography variant="subtitle2">
-            Website Pemilu <em>Decentralized</em> pertama di Indonesia
-          </Typography>
+      <Container maxWidth="lg">
+        <Box
+          sx={{
+            display: "flex",
+            position: "absolute",
+            top: "25%",
+            height: "50%",
+            justifyContent: "space-evenly",
+            flexDirection: "column",
+          }}
+        >
+          <Box>
+            <HowToVoteIcon
+              sx={{ fontSize: "5vw", color: colorPalette.DarkRed }}
+            />
+            <Typography variant="subtitle1" sx={{ fontSize: "1em" }}>
+              Selamat Datang di:
+            </Typography>
+            <Typography
+              variant="h1"
+              sx={{ color: colorPalette.DarkRed, fontSize: "6.5vw" }}
+            >
+              <strong>M Y V O T E</strong>
+            </Typography>
+            <Typography variant="subtitle2">
+              Website Pemilu <em>Decentralized</em> pertama di Indonesia!
+            </Typography>
+          </Box>
           {/* Buttons and stuff */}
           <Box>
             <Link to="/login">
