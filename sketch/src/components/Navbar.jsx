@@ -16,6 +16,13 @@ import { Link, Outlet } from "react-router-dom";
 
 const pages = ["Home", "Vote", "Stats"];
 const settings = ["Status", "Logout"];
+const colorPalette = {
+  VeryWhite: "#F6F6F6",
+  White: "#E8E8E8",
+  Black: "#333333",
+  DarkRed: "#990100",
+  Red: "#B90504",
+};
 
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -38,7 +45,7 @@ function Navbar() {
   };
 
   return (
-    <AppBar position="static" sx={{}}>
+    <AppBar position="static" sx={{ backgroundColor: colorPalette.DarkRed }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <HowToVoteIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
