@@ -2,6 +2,7 @@ import Container from "@mui/material/Container";
 import { useState, useEffect } from "react";
 import Select from "../components/Select";
 import Button from "@mui/material/Button";
+import { Divider } from "@mui/material";
 
 const VoteDisplay = () => {
   const [userLocation, setUserLocation] = useState(null);
@@ -54,6 +55,7 @@ const VoteDisplay = () => {
       <Container maxWidth="lg" sx={{ padding: "10vh 5vw" }}>
         {/* Automatic fetch User location is not useful. Delete this later, Just use data from ktp bcs more accurate + easier */}
         <h1>Voting Page</h1>
+        <Divider orientation="middle" flexItem sx={{ margin: "3vh 0 3vh 0" }} />
         {!userLocation ? (
           <Button onClick={getUserLocation} variant="contained">
             Grab paper

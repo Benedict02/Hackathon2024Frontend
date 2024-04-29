@@ -14,14 +14,12 @@ import MenuItem from "@mui/material/MenuItem";
 import HowToVoteIcon from "@mui/icons-material/HowToVote";
 import { Link, Outlet } from "react-router-dom";
 
-const pages = ["Home", "Vote", "Stats"];
-const settings = ["Status", "Logout"];
 const colorPalette = {
-  VeryWhite: "#F6F6F6",
-  White: "#E8E8E8",
-  Black: "#333333",
-  DarkRed: "#990100",
-  Red: "#B90504",
+  VeryWhite: "#F6F6F6" + "!important",
+  White: "#E8E8E8" + "!important",
+  Black: "#333333" + "!important",
+  DarkRed: "#990100" + "!important",
+  Red: "#B90504" + "!important",
 };
 
 function Navbar() {
@@ -59,16 +57,12 @@ function Navbar() {
               fontFamily: "monospace",
               fontWeight: 700,
               letterSpacing: ".3rem",
-              color: "inherit",
+              color: colorPalette.White,
               textDecoration: "none",
             }}
           >
             MYVOTE
           </Typography>
-          {/* <Link
-            to="/"
-            style={{ display: "flex", textDecoration: "none", color: "white" }}
-          ></Link> */}
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
@@ -81,6 +75,8 @@ function Navbar() {
             >
               <MenuIcon />
             </IconButton>
+
+            {/* Mobile */}
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
@@ -99,13 +95,36 @@ function Navbar() {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
-                <Link key={page} to={"/" + page.toLowerCase()}>
-                  <MenuItem onClick={handleCloseNavMenu}>
-                    <Typography textAlign="center">{page}</Typography>
-                  </MenuItem>
-                </Link>
-              ))}
+              <Link to="/home">
+                <MenuItem onClick={handleCloseNavMenu}>
+                  <Typography
+                    textAlign="center"
+                    sx={{ color: colorPalette.Black }}
+                  >
+                    Home
+                  </Typography>
+                </MenuItem>
+              </Link>
+              <Link to="/vote">
+                <MenuItem onClick={handleCloseNavMenu}>
+                  <Typography
+                    textAlign="center"
+                    sx={{ color: colorPalette.Black }}
+                  >
+                    Vote
+                  </Typography>
+                </MenuItem>
+              </Link>
+              <Link to="/stats">
+                <MenuItem onClick={handleCloseNavMenu}>
+                  <Typography
+                    textAlign="center"
+                    sx={{ color: colorPalette.Black }}
+                  >
+                    Stats
+                  </Typography>
+                </MenuItem>
+              </Link>
             </Menu>
           </Box>
           <HowToVoteIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
@@ -113,7 +132,6 @@ function Navbar() {
             variant="h5"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
             sx={{
               mr: 2,
               display: { xs: "flex", md: "none" },
@@ -128,16 +146,30 @@ function Navbar() {
             MYVOTE
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
-              <Link key={page} to={"/" + page.toLowerCase()}>
-                <Button
-                  onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: "white", display: "block" }}
-                >
-                  {page}
-                </Button>
-              </Link>
-            ))}
+            <Link to="/home">
+              <Button
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: colorPalette.VeryWhite, display: "block" }}
+              >
+                Home
+              </Button>
+            </Link>
+            <Link to="/vote">
+              <Button
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: colorPalette.VeryWhite, display: "block" }}
+              >
+                Vote
+              </Button>
+            </Link>
+            <Link to="/stats">
+              <Button
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: colorPalette.VeryWhite, display: "block" }}
+              >
+                Stats
+              </Button>
+            </Link>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
@@ -164,11 +196,12 @@ function Navbar() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
+              <MenuItem onClick={handleCloseUserMenu}>
+                <Typography textAlign="center">Status</Typography>
+              </MenuItem>
+              <MenuItem onClick={handleCloseUserMenu}>
+                <Typography textAlign="center">Logout</Typography>
+              </MenuItem>
             </Menu>
           </Box>
         </Toolbar>

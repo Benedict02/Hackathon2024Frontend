@@ -1,6 +1,6 @@
 @font-face {
   font-family: Maison Neue;
-  src: url(./assets/MaisonNeue.otf);
+  src: url(/MaisonNeue.otf);
 }
 
 * {
@@ -8,6 +8,28 @@
   padding: 0;
   box-sizing: border-box;
   font-family: Maison Neue;
+}
+
+.landing__background {
+  position: fixed;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 1) 26%,
+    rgba(255, 255, 255, 1) 33%,
+    rgba(237, 237, 237, 1) 41%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  height: 100%;
+  width: 100%;
+}
+.landing__image {
+  position: fixed;
+  z-index: -1;
+  background-image: url(/santoso.png);
+  height: 100%;
+  width: 100%;
 }
 /* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
